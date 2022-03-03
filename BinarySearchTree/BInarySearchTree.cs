@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace BinarySearchTree
 {
     internal class BinarySearchTree
     {
-        Node root = null,temp=null;
+        public Node root = null;
         public void insert(int value)
         {
             Node newNode = new Node();
@@ -30,12 +30,18 @@ namespace BinarySearchTree
                 prev.left = newNode;
             else
                 prev.right = newNode;
-                }
+          }
+        public void Display(Node root)
+        {
+            if (root == null)
+                return;
+            Display(root.left);
+            Console.WriteLine(root.data);
+            Display(root.right);
+        }
         public void display()
         {
-            Console.WriteLine(root.data);
-            Console.WriteLine(root.left.data);
-            Console.WriteLine(root.right.data);
+            Display(root);
         }
     }
    }
