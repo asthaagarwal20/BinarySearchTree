@@ -33,17 +33,34 @@ namespace BinarySearchTree
             else
                 prev.right = newNode;
           }
-        public void Display(Node root)
+        public void Display(Node root1)
         {
-            if (root == null)
+            if (root1 == null)
                 return;
-            Display(root.left);
-            Console.WriteLine(root.data);
-            Display(root.right);
+            Display(root1.left);
+            Console.WriteLine(root1.data);
+            Display(root1.right);
         }
         public void display()
         {
-            Display(root);
+            Node root1 = root;
+            Display(root1);
+        }
+        public int Search(Node temp,int value)
+        {
+            if (temp == null)
+                return 0;
+            else if (temp.data == value)
+                return 1;
+            else if (temp.data < value)
+               return Search(temp.right,value);
+            else
+              return  Search(temp.left,value);
+        }
+        public int search(int value)
+        {
+            Node temp = root;
+            return Search(temp, value);
         }
     }
    }
